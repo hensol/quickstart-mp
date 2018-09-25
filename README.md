@@ -1,7 +1,7 @@
 
 # Helidon Example: quickstart-mp
 
-This example implements a simple Hello World REST service using MicroProfile
+This example implements a simple Hello World REST service using MicroProfile.
 
 ## Prerequisites
 
