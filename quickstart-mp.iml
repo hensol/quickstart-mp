@@ -83,13 +83,13 @@
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-util:0.31.0" level="project" />
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-api:0.31.0" level="project" />
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-noop:0.31.0" level="project" />
-    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.5.0" level="project" />
     <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1" level="project" />
     <orderEntry type="library" name="Maven: javax.json:javax.json-api:1.1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.5.0" level="project" />
     <orderEntry type="library" name="Maven: io.prometheus:simpleclient_hotspot:0.5.0" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-registry-prometheus:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.0.6" level="project" />

@@ -15,7 +15,7 @@
 #
 
 #FROM openjdk:8-jre-slim
-FROM openjdk:8-jre-alpine
+FROM openjdk:11-jre-slim
 
 RUN mkdir /app
 COPY ${project.artifactId}.jar /app
