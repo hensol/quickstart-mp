@@ -18,10 +18,10 @@ package io.helidon.examples.quickstart.mp;
 
 import java.io.IOException;
 
-import com.codahale.metrics.MetricRegistry;
+
 import io.helidon.microprofile.server.Server;
 import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.dropwizard.DropwizardExports;
+import io.prometheus.client.hotspot.DefaultExports;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
 /**
@@ -29,8 +29,6 @@ import org.slf4j.bridge.SLF4JBridgeHandler;
  */
 public final class Main {
 
-    // Create registry for Dropwizard metrics.
-    static final MetricRegistry metrics = new MetricRegistry();
 
     /**
      * Cannot be instantiated.
@@ -53,9 +51,8 @@ public final class Main {
      */
     protected static Server startServer() throws IOException {
 
-        // Hook the Dropwizard registry into the Prometheus registry
-        // via the DropwizardExports collector.
-        CollectorRegistry.defaultRegistry.register(new DropwizardExports(metrics));
+        //Init prometheus
+        DefaultExports.initialize();
 
         // Optionally remove existing handlers attached to j.u.l root logger
         SLF4JBridgeHandler.removeHandlersForRootLogger();  // (since SLF4J 1.6.5)
@@ -64,6 +61,10 @@ public final class Main {
         // the initialization phase of your application
         SLF4JBridgeHandler.install();
 
+
+        // Expose Prometheus metrics.
+        PrometheusServer prometheusServer = new PrometheusServer(CollectorRegistry.defaultRegistry, 9092);
+        prometheusServer.start();
 
 
         // Server will automatically pick up configuration from
