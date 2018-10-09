@@ -1,12 +1,12 @@
 
 # Helidon Example: quickstart-mp
 
-This example implements a simple Hello World REST service using MicroProfile.
+This example implements a simple Hello World REST service using MicroProfile
 
 ## Prerequisites
 
 1. Maven 3.5 or newer
-2. Java SE 8 or newer
+2. Java SE 11 or newer
 3. Docker 17 or newer (if you want to build and run docker images)
 4. Kubernetes minikube v0.24 or newer (if you want to deploy to Kubernetes)
    or access to a Kubernetes 1.7.4 or newer cluster
@@ -36,16 +36,16 @@ java -jar target/quickstart-mp.jar
 ## Exercise the application
 
 ```
-curl -X GET http://localhost:8080/greet
+curl -X GET http://localhost:8081/greet
 {"message":"Hello World!"}
 
-curl -X GET http://localhost:8080/greet/Joe
+curl -X GET http://localhost:8081/greet/Joe
 {"message":"Hello Joe!"}
 
-curl -X PUT http://localhost:8080/greet/greeting/Hola
+curl -X PUT http://localhost:8081/greet/greeting/Hola
 {"gretting":"Hola"}
 
-curl -X GET http://localhost:8080/greet/Jose
+curl -X GET http://localhost:8081/greet/Jose
 {"message":"Hola Jose!"}
 ```
 
@@ -58,7 +58,7 @@ docker build -t quickstart-mp target
 ## Start the application with Docker
 
 ```
-docker run --rm -p 8080:8080 quickstart-mp:latest
+docker run --rm -p 8080:8081 quickstart-mp:latest
 ```
 
 Exercise the application as described above

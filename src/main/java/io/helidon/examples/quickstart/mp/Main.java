@@ -17,14 +17,20 @@
 package io.helidon.examples.quickstart.mp;
 
 import java.io.IOException;
-import java.util.logging.LogManager;
 
+import com.codahale.metrics.MetricRegistry;
 import io.helidon.microprofile.server.Server;
+import io.prometheus.client.CollectorRegistry;
+import io.prometheus.client.dropwizard.DropwizardExports;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 /**
  * Main method simulating trigger of main method of the server.
  */
 public final class Main {
+
+    // Create registry for Dropwizard metrics.
+    static final MetricRegistry metrics = new MetricRegistry();
 
     /**
      * Cannot be instantiated.
@@ -47,9 +53,17 @@ public final class Main {
      */
     protected static Server startServer() throws IOException {
 
-        // load logging configuration
-        LogManager.getLogManager().readConfiguration(
-                Main.class.getResourceAsStream("/logging.properties"));
+        // Hook the Dropwizard registry into the Prometheus registry
+        // via the DropwizardExports collector.
+        CollectorRegistry.defaultRegistry.register(new DropwizardExports(metrics));
+
+        // Optionally remove existing handlers attached to j.u.l root logger
+        SLF4JBridgeHandler.removeHandlersForRootLogger();  // (since SLF4J 1.6.5)
+
+        // add SLF4JBridgeHandler to j.u.l's root logger, should be done once during
+        // the initialization phase of your application
+        SLF4JBridgeHandler.install();
+
 
 
         // Server will automatically pick up configuration from

@@ -28,6 +28,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A simple JAX-RS resource to greet you. Examples:
@@ -46,6 +48,9 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 @Path("/greet")
 @RequestScoped
 public class GreetResource {
+
+
+    private static Logger logger = LoggerFactory.getLogger(GreetResource.class);
 
     /**
      * The greeting message.
@@ -75,6 +80,8 @@ public class GreetResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject getDefaultMessage() {
+
+        logger.info("Bingo");
         String msg = String.format("%s %s!", greeting, "World");
 
         JsonObject returnObject = Json.createObjectBuilder()
