@@ -1,6 +1,9 @@
 
 # Helidon Example: quickstart-mp
 
+[![Build Status](https://travis-ci.org/hensol/quickstart-mp.svg?branch=master)](https://travis-ci.org/hensol/quickstart-mp.svg?branch=master)  [![Known Vulnerabilities](https://snyk.io/test/github/hensol/quickstart-mp/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/hensol/quickstart-mp?targetFile=pom.xml)
+
+
 This example implements a simple Hello World REST service using MicroProfile
 
 ## Prerequisites
