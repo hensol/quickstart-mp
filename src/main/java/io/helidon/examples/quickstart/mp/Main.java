@@ -20,8 +20,6 @@ import java.io.IOException;
 
 
 import io.helidon.microprofile.server.Server;
-import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.hotspot.DefaultExports;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
 /**
@@ -51,8 +49,7 @@ public final class Main {
      */
     protected static Server startServer() throws IOException {
 
-        //Init prometheus
-        DefaultExports.initialize();
+
 
         // Optionally remove existing handlers attached to j.u.l root logger
         SLF4JBridgeHandler.removeHandlersForRootLogger();  // (since SLF4J 1.6.5)
@@ -62,9 +59,7 @@ public final class Main {
         SLF4JBridgeHandler.install();
 
 
-        // Expose Prometheus metrics.
-        PrometheusServer prometheusServer = new PrometheusServer(CollectorRegistry.defaultRegistry, 9092);
-        prometheusServer.start();
+
 
 
         // Server will automatically pick up configuration from

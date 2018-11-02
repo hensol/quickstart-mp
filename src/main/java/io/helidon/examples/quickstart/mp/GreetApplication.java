@@ -35,6 +35,7 @@ public class GreetApplication extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> set = new HashSet<>();
         set.add(GreetResource.class);
+        set.add(MicrometerResource.class);
         return Collections.unmodifiableSet(set);
     }
 }
